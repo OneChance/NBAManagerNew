@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.gc.materialdesign.views.ButtonRectangle;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.services.LoginObserver;
 import com.zhstar.demo.nbamanager.util.Code;
@@ -21,8 +21,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     private EditText editName;
     private EditText editPassword;
-    private Button loginBtn;
-    private Button regBtn;
+    private ButtonRectangle loginBtn;
+    private ButtonRectangle regBtn;
     private CheckBox checkSave;
     private SharedPreferences.Editor editor;
     private Context context;
@@ -36,8 +36,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         editName = (EditText) findViewById(R.id.account_edit);
         editPassword = (EditText) findViewById(R.id.password_edit);
-        loginBtn = (Button) findViewById(R.id.login_btn);
-        regBtn = (Button) findViewById(R.id.reg_btn);
+        loginBtn = (ButtonRectangle) findViewById(R.id.login_btn);
+        regBtn = (ButtonRectangle) findViewById(R.id.reg_btn);
         checkSave = (CheckBox) findViewById(R.id.save_check);
 
         SharedPreferences sharedPreferences = SharedUtil.getSharedPreferences(context);

@@ -1,15 +1,20 @@
 package com.zhstar.demo.nbamanager.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
 import com.zhstar.demo.nbamanager.Entity.MenuItem;
 import com.zhstar.demo.nbamanager.Entity.Team;
 import com.zhstar.demo.nbamanager.Entity.User;
@@ -17,7 +22,9 @@ import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.adapter.MenuAdapter;
 import com.zhstar.demo.nbamanager.fragment.MarketFragment;
 import com.zhstar.demo.nbamanager.fragment.TeamFragment;
+import com.zhstar.demo.nbamanager.util.SystemBarTintManager;
 import com.zhstar.demo.nbamanager.view.SlidingMenu;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +86,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
 
         //menu list
         setMenuItems(user.getTeam());
-        menuAdapter = new MenuAdapter(context,menuItems,R.layout.menu_list);
+        menuAdapter = new MenuAdapter(context, menuItems, R.layout.menu_list);
         listView.setAdapter(menuAdapter);
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
@@ -88,6 +95,30 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         ft.hide(marketfragment);
         ft.commit();
 
+        //设置状态栏颜色
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus(this, true);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(R.color.statusbar_bg);
+        }
+    }
+
+    @TargetApi(19)
+    private static void setTranslucentStatus(Activity activity, boolean on) {
+
+        Window win = activity.getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+
+        win.setAttributes(winParams);
     }
 
     private void setMenuItems(Team team) {

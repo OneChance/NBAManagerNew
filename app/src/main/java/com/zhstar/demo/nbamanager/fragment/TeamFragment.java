@@ -2,11 +2,11 @@ package com.zhstar.demo.nbamanager.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,16 +19,17 @@ import com.zhstar.demo.nbamanager.util.GameNetUtil;
  */
 public class TeamFragment extends Fragment implements AdapterView.OnItemClickListener {
 
-    private ListView listView;
+    private RecyclerView listView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.team_fragment, container, false);
-        listView = (ListView) view.findViewById(R.id.player_list);
-        listView.setOnItemClickListener(this);
+        View view = inflater.inflate(R.layout.team, container, false);
 
-        GetTeam();
+        listView = (RecyclerView) view.findViewById(R.id.play_list);
+        //listView.setOnItemClickListener(this);
+
+        //GetTeam();
 
         return view;
     }

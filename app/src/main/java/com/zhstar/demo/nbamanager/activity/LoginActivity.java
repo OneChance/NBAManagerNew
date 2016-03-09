@@ -5,16 +5,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.services.LoginObserver;
 import com.zhstar.demo.nbamanager.util.Code;
 import com.zhstar.demo.nbamanager.util.GameNetUtil;
 import com.zhstar.demo.nbamanager.util.SharedUtil;
+import com.zhstar.demo.nbamanager.view.button.ButtonRectangle;
 
 
 public class LoginActivity extends Activity implements View.OnClickListener {
@@ -23,7 +22,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private EditText editPassword;
     private ButtonRectangle loginBtn;
     private ButtonRectangle regBtn;
-    private CheckBox checkSave;
     private SharedPreferences.Editor editor;
     private Context context;
 
@@ -38,17 +36,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         editPassword = (EditText) findViewById(R.id.password_edit);
         loginBtn = (ButtonRectangle) findViewById(R.id.login_btn);
         regBtn = (ButtonRectangle) findViewById(R.id.reg_btn);
-        checkSave = (CheckBox) findViewById(R.id.save_check);
 
         SharedPreferences sharedPreferences = SharedUtil.getSharedPreferences(context);
         editor = sharedPreferences.edit();
 
         String username = sharedPreferences.getString("username", "");
         String password = sharedPreferences.getString("password", "");
-
-        if (!username.equals("")) {
-            checkSave.setChecked(true);
-        }
 
         editName.setText(username);
         editPassword.setText(password);

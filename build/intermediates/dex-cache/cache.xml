@@ -1,3 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\libs\nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\nineoldandroids-2.4.0_b7163546a76bb3494e69d5e330e1a3c5f2145a92.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\2.0.0-beta2\880d9e0997b2d1bfc98e0d121ced33ee5d04aac4\retrofit-2.0.0-beta2.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="880d9e0997b2d1bfc98e0d121ced33ee5d04aac4">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\retrofit-2.0.0-beta2_0bbc28685b1ddea95c3d235c49cc4ebefb52169f.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\com.android.support-design-22.2.0_af8dad79b7f136e0f06d20cb271a565d70b3f271.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.0.14\898f9ab61e2a23afd615f0b0389478bec86f49f9\rxjava-1.0.14.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="898f9ab61e2a23afd615f0b0389478bec86f49f9">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\rxjava-1.0.14_9f492e328e334cc252ea776e8dd5ca8d7bbcd444.jar" />
+    </item>
+    <item
+        jar="E:\UE4\NVPACK\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1_911b27df4ee86ed8c02af07cdf3a87cfe9e85874.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1_a617941a77ff2be00e019a32b67b6b6f567362c9.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\okhttp-2.5.0_aaf670ee13c1107d7b91498e7422a2ff1bbba1f4.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="3abb4b88f5a8a0584a9b01d3170d7165f12f8588">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-22.2.1_8a823f2436f8b416884450b144dd14adda2b41d5.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\adapter-rxjava\2.0.0-beta2\3a233746381a03dbb0f5f3ed10b11c3e72dba499\adapter-rxjava-2.0.0-beta2.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="3a233746381a03dbb0f5f3ed10b11c3e72dba499">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\adapter-rxjava-2.0.0-beta2_5ab0ff5be4f1e780031d8a6176a9e3c1f7d81316.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\okio-1.6.0_ef4505d325333b94b42e04c7842189a23ad7f91c.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="22886d910315028a2b34b1ba068c265534ade87a">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-22.1.1_cb597a1db776eb59e63b357c9cecfb5361364eb4.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\converter-gson\2.0.0-beta2\392c3d09e0f5e7087544093cc0cb23bb9c7af5fa\converter-gson-2.0.0-beta2.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="392c3d09e0f5e7087544093cc0cb23bb9c7af5fa">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\converter-gson-2.0.0-beta2_63e509579aad07732186ef79b8ac3ad56dfe6912.jar" />
+    </item>
+    <item
+        jar="C:\Users\zhouhui\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\gson-2.3.1_2a78ac090d7c6de605e9bcd93c29538f0a537a75.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-22.2.1_862caf6657c015170b573fe986a5b7f7e9cd7766.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\io.reactivex-rxandroid-1.0.1_0061a15c07a4e99bf16862174def970a3ef13bdb.jar" />
+    </item>
+    <item
+        jar="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="D:\OLDCOMPUTER\OTHER\Android\workspace\NBAManagerNew\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-22.2.0_ef441637f0572dedc52ce9fe6e2a2f97feb3e086.jar" />
+    </item>
+
+</items>

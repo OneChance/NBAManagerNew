@@ -2,7 +2,7 @@ package com.zhstar.demo.nbamanager.services;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.widget.ListView;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.Entity.Player;
@@ -20,12 +20,12 @@ public class TeamObserver implements Observer<TeamData> {
 
     private TeamPlayerAdapter teamPlayerAdapter;
     private List<Player> players;
-    private ListView listView;
+    private RecyclerView listView;
 
     public Context context;
 
 
-    public TeamObserver(Context context, ListView listView) {
+    public TeamObserver(Context context, RecyclerView listView) {
         this.context = context;
         this.listView = listView;
     }

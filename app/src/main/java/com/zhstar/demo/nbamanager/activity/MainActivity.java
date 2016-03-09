@@ -19,7 +19,6 @@ import java.util.List;
 
 public class MainActivity extends Activity{
 
-    private MenuAdapter menuAdapter;
     private List<MenuItem> menuItems;
     private ListView listView;
     private static FragmentManager fragmentManager;

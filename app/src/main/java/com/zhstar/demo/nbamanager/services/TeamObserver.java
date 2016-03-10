@@ -2,7 +2,6 @@ package com.zhstar.demo.nbamanager.services;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.Entity.Player;
@@ -10,7 +9,6 @@ import com.zhstar.demo.nbamanager.Entity.Team;
 import com.zhstar.demo.nbamanager.Entity.TeamData;
 import com.zhstar.demo.nbamanager.adapter.TeamPlayerAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observer;
@@ -18,16 +16,15 @@ import rx.Observer;
 
 public class TeamObserver implements Observer<TeamData> {
 
-    private TeamPlayerAdapter teamPlayerAdapter;
-    private List<Player> players;
-    private RecyclerView listView;
-
+    private TeamPlayerAdapter adapter;
     public Context context;
+    private List<Player> players;
 
 
-    public TeamObserver(Context context, RecyclerView listView) {
+    public TeamObserver(Context context, List<Player> players,TeamPlayerAdapter adapter) {
         this.context = context;
-        this.listView = listView;
+        this.players = players;
+        this.adapter = adapter;
     }
 
     @Override
@@ -49,9 +46,6 @@ public class TeamObserver implements Observer<TeamData> {
         if (msg.equals("")) {
             Team team = teamData.getData();
             setData(team);
-            teamPlayerAdapter = new TeamPlayerAdapter(context, players);
-            listView.setAdapter(teamPlayerAdapter);
-
         } else {
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
         }
@@ -59,16 +53,13 @@ public class TeamObserver implements Observer<TeamData> {
 
     private void setData(Team team) {
 
-        if (players == null) {
-            players = new ArrayList<Player>();
-        }
-
-        players.clear();
-
         if (team != null) {
             List<Player> playerList = team.getPlayerList();
 
             if (playerList != null) {
+
+                players.clear();
+
                 for (Player player : playerList) {
 
                     Resources res = context.getResources();
@@ -77,6 +68,8 @@ public class TeamObserver implements Observer<TeamData> {
 
                     players.add(player);
                 }
+
+                adapter.notifyDataSetChanged();
             }
         }
     }

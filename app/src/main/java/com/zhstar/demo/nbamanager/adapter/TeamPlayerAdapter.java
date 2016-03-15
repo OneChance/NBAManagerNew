@@ -36,32 +36,23 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
 
         Player p = players.get(position);
 
-        /*
+        holder.headI.setImageResource(p.getHead_img());
+        holder.nameT.setText(p.getPlayer_name());
+        holder.posT.setText(p.getPos());
+        holder.marketSalT.setText(p.getSal()+"");
+        holder.signSalT.setText(p.getSign_sal()+"");
+        holder.shootT.setText(p.getShoot());
+        holder.ftT.setText(p.getFree_throw());
+        holder.rebT.setText(p.getRebound());
+        holder.astT.setText(p.getAssist());
+        holder.stlT.setText(p.getSteal());
+        holder.blkT.setText(p.getBlock());
+        holder.turT.setText(p.getFault());
+        holder.pfT.setText(p.getFault());
+        holder.ptsT.setText(p.getPoint());
+        holder.evT.setText(p.getEv()+"");
+        holder.idT.setText(p.getPlayer_id().toString());
 
-            holder.setImgRes(R.id.player_head, player.getHead_img());
-            holder.setText(R.id.player_name, player.getPlayer_name());
-            holder.setText(R.id.player_pos, player.getPos());
-            holder.setText(R.id.market_sal, player.getSal() + "");
-            holder.setText(R.id.sign_sal, player.getSign_sal() + "");
-            holder.setText(R.id.fg, player.getShoot());
-            holder.setText(R.id.ft, player.getFree_throw());
-            holder.setText(R.id.reb, player.getRebound());
-            holder.setText(R.id.ast, player.getAssist());
-            holder.setText(R.id.stl, player.getSteal());
-            holder.setText(R.id.blk, player.getBlock());
-            holder.setText(R.id.tur, player.getFault());
-            holder.setText(R.id.pf, player.getFoul());
-            holder.setText(R.id.pts, player.getPoint());
-            holder.setText(R.id.ev, player.getEv() + "");
-            holder.setText(R.id.player_id,player.getPlayer_id()+"");
-
-            Button unsignButton = holder.getView(R.id.unsign);
-            unsignButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, player.getPlayer_id() + "", Toast.LENGTH_SHORT).show();
-                }
-            });*/
     }
 
     @Override
@@ -72,12 +63,43 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
 
     public static class ViewHolder
             extends RecyclerView.ViewHolder {
-        public TextView mTextView;
-        public ImageView mImageView;
+
+        public ImageView headI;
+        public TextView nameT;
+        public TextView posT;
+        public TextView marketSalT;
+        public TextView signSalT;
+        public TextView shootT;
+        public TextView ftT;
+        public TextView rebT;
+        public TextView astT;
+        public TextView stlT;
+        public TextView blkT;
+        public TextView turT;
+        public TextView pfT;
+        public TextView ptsT;
+        public TextView evT;
+        public TextView idT;
 
         public ViewHolder(View v) {
             super(v);
 
+            headI = (ImageView)v.findViewById(R.id.player_head);
+            nameT = (TextView) v.findViewById(R.id.player_name);
+            posT = (TextView) v.findViewById(R.id.player_pos);
+            marketSalT = (TextView) v.findViewById(R.id.market_sal);
+            signSalT = (TextView) v.findViewById(R.id.sign_sal);
+            shootT = (TextView) v.findViewById(R.id.fg);
+            ftT = (TextView) v.findViewById(R.id.ft);
+            rebT = (TextView) v.findViewById(R.id.reb);
+            astT = (TextView) v.findViewById(R.id.ast);
+            stlT = (TextView) v.findViewById(R.id.stl);
+            blkT = (TextView) v.findViewById(R.id.blk);
+            turT = (TextView) v.findViewById(R.id.tur);
+            pfT = (TextView) v.findViewById(R.id.pf);
+            ptsT = (TextView) v.findViewById(R.id.pts);
+            evT = (TextView) v.findViewById(R.id.ev);
+            idT = (TextView) v.findViewById(R.id.player_id);
 
         }
     }

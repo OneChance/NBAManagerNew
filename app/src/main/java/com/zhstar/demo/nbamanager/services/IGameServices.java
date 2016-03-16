@@ -1,5 +1,6 @@
 package com.zhstar.demo.nbamanager.services;
 
+import com.zhstar.demo.nbamanager.Entity.PlayerData;
 import com.zhstar.demo.nbamanager.Entity.TeamData;
 import com.zhstar.demo.nbamanager.Entity.UserData;
 
@@ -15,6 +16,9 @@ public interface IGameServices {
     @POST("nba/account/login/?device=app")
     public Observable<UserData> Login(@Field("user_name") String username, @Field("password") String password);
 
-    @GET("/nba/game/myteam/?device=app")
-    public Observable<TeamData> getTeam();
+    @GET("/nba/game/myteam/?device=app&ask=players")
+    public Observable<PlayerData> getTeamPlayers();
+
+    @GET("/nba/game/myteam/?device=app&ask=teamInfo")
+    public Observable<TeamData> getTeamInfo();
 }

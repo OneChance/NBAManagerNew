@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.Entity.User;
 import com.zhstar.demo.nbamanager.Entity.UserData;
+import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.activity.MainActivity;
 
 import rx.Observer;
@@ -29,7 +30,7 @@ public class LoginObserver implements Observer<UserData> {
     @Override
     public void onError(Throwable e) {
         e.printStackTrace();
-        Toast.makeText(context, "登陆异常", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, R.string.login_error, Toast.LENGTH_SHORT).show();
     }
 
 

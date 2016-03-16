@@ -24,6 +24,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private ButtonRectangle regBtn;
     private SharedPreferences.Editor editor;
     private Context context;
+    private LoginObserver loginObserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         context = this;
 
+        loginObserver = new LoginObserver(context);
         editName = (EditText) findViewById(R.id.account_edit);
         editPassword = (EditText) findViewById(R.id.password_edit);
         loginBtn = (ButtonRectangle) findViewById(R.id.login_btn);
@@ -65,7 +67,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             switch (v.getId()) {
                 case R.id.login_btn:
                     GameNetUtil.SetObserverCommonAction(GameNetUtil.getGameServices().Login(username, password))
-                            .subscribe(new LoginObserver(context));
+                            .subscribe(loginObserver);
                     break;
                 case R.id.reg_btn:
                     break;

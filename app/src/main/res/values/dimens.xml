@@ -29,4 +29,7 @@
 
     <!-- Toolbar Padding -->
     <dimen name="tool_bar_top_padding">0dp</dimen>
+
+
+    <dimen name="mm_up_arrow_margin">-16dp</dimen>
 </resources>

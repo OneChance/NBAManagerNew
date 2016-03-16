@@ -49,7 +49,7 @@
         app:met_floatingLabelText="@string/hint_account"
         app:met_floatingLabelTextSize="14dp"
         app:met_maxCharacters="8"
-        app:met_minCharacters="5"
+        app:met_minCharacters="2"
         app:met_singleLineEllipsis="true" />
 
     <com.zhstar.demo.nbamanager.view.edittext.MaterialEditText

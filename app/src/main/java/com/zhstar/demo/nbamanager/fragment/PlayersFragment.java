@@ -11,29 +11,31 @@ import android.view.ViewGroup;
 import com.zhstar.demo.nbamanager.Entity.Player;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.adapter.TeamPlayerAdapter;
-import com.zhstar.demo.nbamanager.services.TeamObserver;
+import com.zhstar.demo.nbamanager.services.TeamPlayersObserver;
 import com.zhstar.demo.nbamanager.util.GameNetUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class TeamFragment extends Fragment {
+public class PlayersFragment extends Fragment {
 
     private RecyclerView listView;
     private List<Player> players;
     private TeamPlayerAdapter adapter;
+    private TeamPlayersObserver teamPlayersObserver;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.team, container, false);
+        View view = inflater.inflate(R.layout.team_players, container, false);
 
         listView = (RecyclerView) view.findViewById(R.id.play_list);
         listView.setLayoutManager(new LinearLayoutManager(getActivity()));
         players = new ArrayList<Player>();
         adapter = new TeamPlayerAdapter(getActivity(), players);
         listView.setAdapter(adapter);
+        teamPlayersObserver = new TeamPlayersObserver(getActivity(), players, adapter);
 
         GetTeam();
 
@@ -52,9 +54,7 @@ public class TeamFragment extends Fragment {
     }
 
     public void GetTeam() {
-
-        GameNetUtil.SetObserverCommonAction(GameNetUtil.getGameServices().getTeam())
-                .subscribe(new TeamObserver(getActivity(), players, adapter));
-
+        GameNetUtil.SetObserverCommonAction(GameNetUtil.getGameServices().getTeamPlayers())
+                .subscribe(teamPlayersObserver);
     }
 }

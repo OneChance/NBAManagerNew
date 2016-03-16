@@ -1,4 +1,6 @@
 <resources>
+
+    <!-- player card -->
     <string name="app_name">NBAManager</string>
     <string name="game_title">篮球经理</string>
     <string name="hint_account">账户</string>
@@ -18,4 +20,13 @@
     <string name="pf">犯规</string>
     <string name="pts">得分</string>
     <string name="ev">效率</string>
+
+    <!-- team info -->
+    <string name="evalue">球迷数</string>
+    <string name="money">资金</string>
+
+    <!-- toast -->
+    <string name="get_teaminfo_error">获取球队信息异常</string>
+    <string name="get_teamplayers_error">获取球员信息异常</string>
+    <string name="login_error">登陆异常</string>
 </resources>

@@ -1,43 +1,41 @@
 package com.zhstar.demo.nbamanager.activity;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
-import com.zhstar.demo.nbamanager.Entity.MenuItem;
-import com.zhstar.demo.nbamanager.Entity.User;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.fragment.MarketFragment;
-import com.zhstar.demo.nbamanager.fragment.TeamFragment;
+import com.zhstar.demo.nbamanager.fragment.PlayersFragment;
+import com.zhstar.demo.nbamanager.view.toolbar.MaterialMenuDrawable.Stroke;
+import com.zhstar.demo.nbamanager.view.toolbar.MaterialMenuIconToolbar;
 
-import java.util.List;
 
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends Activity{
-
-    private List<MenuItem> menuItems;
-    private ListView listView;
     private static FragmentManager fragmentManager;
-    private static TeamFragment teamfragment;
-    private static MarketFragment marketfragment;
+    private static PlayersFragment playersFragment;
+    private static MarketFragment marketFragment;
     private static Context context;
-    private User user;
-    private TextView username;
+    private Toolbar toolbar;
+    private MaterialMenuIconToolbar materialMenu;
+    protected BaseActivityHelper helper;
 
     private void changeFragment(String tag) {
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
 
-        if (tag.equals("team") && teamfragment.isHidden()) {
-            ft.hide(marketfragment);
-            ft.show(teamfragment);
-        } else if (tag.equals("market") && marketfragment.isHidden()) {
-            ft.hide(teamfragment);
-            ft.show(marketfragment);
+        if (tag.equals("t") && playersFragment.isHidden()) {
+            ft.hide(marketFragment);
+            ft.show(playersFragment);
+        } else if (tag.equals("market") && marketFragment.isHidden()) {
+            ft.hide(playersFragment);
+            ft.show(marketFragment);
         }
 
         ft.commit();
@@ -47,20 +45,48 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.mainpage);
-
         context = this;
-        listView = (ListView) findViewById(R.id.listView);
         fragmentManager = getFragmentManager();
-        teamfragment = new TeamFragment();
-        marketfragment = new MarketFragment();
+        playersFragment = new PlayersFragment();
+        marketFragment = new MarketFragment();
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(R.id.fragment_frame, teamfragment);
-        ft.add(R.id.fragment_frame, marketfragment);
-        ft.hide(marketfragment);
+        ft.add(R.id.fragment_frame, playersFragment);
+        ft.add(R.id.fragment_frame, marketFragment);
+        ft.hide(marketFragment);
         ft.commit();
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+
+        helper = new BaseActivityHelper();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helper.menuToggle();
+            }
+        });
+        materialMenu = new MaterialMenuIconToolbar(this, Color.WHITE, Stroke.THIN) {
+            @Override public int getToolbarViewId() {
+                return R.id.toolbar;
+            }
+        };
+
+        helper.init(getWindow().getDecorView(), materialMenu,context);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        helper.refreshDrawerState();
+        materialMenu.syncState(savedInstanceState);
+    }
+
+    @Override protected void onSaveInstanceState(Bundle outState) {
+        materialMenu.onSaveInstanceState(outState);
+        super.onSaveInstanceState(outState);
     }
 }

@@ -18,6 +18,17 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
     private Context context;
     private List<Player> players;
 
+    public interface OnItemClickLitener {
+        void onItemClick(View view, Long playerId);
+        void onItemLongClick(View view, Long playerId);
+    }
+
+    private OnItemClickLitener mOnItemClickLitener;
+
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+
     public TeamPlayerAdapter(Context context, List<Player> players) {
         this.players = players;
         this.context = context;
@@ -32,15 +43,15 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        Player p = players.get(position);
+        final Player p = players.get(position);
 
         holder.headI.setImageResource(p.getHead_img());
         holder.nameT.setText(p.getPlayer_name());
         holder.posT.setText(p.getPos());
-        holder.marketSalT.setText(p.getSal()+"");
-        holder.signSalT.setText(p.getSign_sal()+"");
+        holder.marketSalT.setText(p.getSal() + "");
+        holder.signSalT.setText(p.getSign_sal() + "");
         holder.shootT.setText(p.getShoot());
         holder.ftT.setText(p.getFree_throw());
         holder.rebT.setText(p.getRebound());
@@ -50,8 +61,27 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
         holder.turT.setText(p.getFault());
         holder.pfT.setText(p.getFault());
         holder.ptsT.setText(p.getPoint());
-        holder.evT.setText(p.getEv()+"");
+        holder.evT.setText(p.getEv() + "");
         holder.idT.setText(p.getPlayer_id().toString());
+
+        if (mOnItemClickLitener != null) {
+            holder.itemView.findViewById(R.id.player_info_wrap).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemClick(holder.itemView, p.getPlayer_id());
+                }
+            });
+
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemLongClick(holder.itemView, p.getPlayer_id());
+                    return false;
+                }
+            });
+        }
 
     }
 
@@ -84,7 +114,7 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
         public ViewHolder(View v) {
             super(v);
 
-            headI = (ImageView)v.findViewById(R.id.player_head);
+            headI = (ImageView) v.findViewById(R.id.player_head);
             nameT = (TextView) v.findViewById(R.id.player_name);
             posT = (TextView) v.findViewById(R.id.player_pos);
             marketSalT = (TextView) v.findViewById(R.id.market_sal);

@@ -2,24 +2,24 @@ package com.zhstar.demo.nbamanager.Entity;
 
 
 public class TeamInfoItem {
-    private int itemName;
+    private int iconRid;
     private String itemValue;
 
     public TeamInfoItem() {
 
     }
 
-    public TeamInfoItem(int itemName, String itemValue) {
-        this.itemName = itemName;
+    public TeamInfoItem(int iconRid, String itemValue) {
+        this.iconRid = iconRid;
         this.itemValue = itemValue;
     }
 
-    public int getItemName() {
-        return itemName;
+    public int getIconRid() {
+        return iconRid;
     }
 
-    public void setItemName(int itemName) {
-        this.itemName = itemName;
+    public void setIconRid(int iconRid) {
+        this.iconRid = iconRid;
     }
 
     public String getItemValue() {

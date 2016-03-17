@@ -22,6 +22,7 @@
     <string name="ev">效率</string>
 
     <!-- team info -->
+    <string name="team_name">队名</string>
     <string name="evalue">球迷数</string>
     <string name="money">资金</string>
 
@@ -29,4 +30,7 @@
     <string name="get_teaminfo_error">获取球队信息异常</string>
     <string name="get_teamplayers_error">获取球员信息异常</string>
     <string name="login_error">登陆异常</string>
+
+    <string name="team_players">球员</string>
+    <string name="markets">市场</string>
 </resources>

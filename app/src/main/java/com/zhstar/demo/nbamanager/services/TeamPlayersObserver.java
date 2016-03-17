@@ -2,6 +2,7 @@ package com.zhstar.demo.nbamanager.services;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.Entity.Player;
@@ -19,12 +20,14 @@ public class TeamPlayersObserver implements Observer<PlayerData> {
     private TeamPlayerAdapter adapter;
     public Context context;
     private List<Player> players;
+    private SwipeRefreshLayout refreshComponent;
 
 
-    public TeamPlayersObserver(Context context, List<Player> players, TeamPlayerAdapter adapter) {
+    public TeamPlayersObserver(Context context, List<Player> players, TeamPlayerAdapter adapter, SwipeRefreshLayout refreshComponent) {
         this.context = context;
         this.players = players;
         this.adapter = adapter;
+        this.refreshComponent = refreshComponent;
     }
 
     @Override
@@ -57,9 +60,10 @@ public class TeamPlayersObserver implements Observer<PlayerData> {
 
             players.clear();
 
+            Resources res = context.getResources();
+
             for (Player player : playerList) {
 
-                Resources res = context.getResources();
                 int resId = res.getIdentifier("player_" + player.getPlayer_id(), "drawable", "com.zhstar.demo.nbamanager");
                 player.setHead_img(resId);
 
@@ -67,6 +71,10 @@ public class TeamPlayersObserver implements Observer<PlayerData> {
             }
 
             adapter.notifyDataSetChanged();
+
+            if (refreshComponent != null) {
+                refreshComponent.setRefreshing(false);
+            }
         }
 
     }

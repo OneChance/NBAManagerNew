@@ -1,17 +1,16 @@
 package com.zhstar.demo.nbamanager.services;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.support.design.widget.NavigationView;
+import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.Entity.Team;
 import com.zhstar.demo.nbamanager.Entity.TeamData;
-import com.zhstar.demo.nbamanager.Entity.TeamInfoItem;
 import com.zhstar.demo.nbamanager.R;
-import com.zhstar.demo.nbamanager.adapter.TeamInfoItemAdapter;
-
-import java.util.List;
 
 import rx.Observer;
 
@@ -19,15 +18,15 @@ import rx.Observer;
 public class TeamInfoObserver implements Observer<TeamData> {
 
     public Context context;
-    public TextView nameT;
-    private TeamInfoItemAdapter teamInfoItemAdapter;
-    private List<TeamInfoItem> infoItems;
+    public ImageView arenaImage;
+    public NavigationView navigationView;
+    public Menu menu;
 
-    public TeamInfoObserver(Context context, View view, TeamInfoItemAdapter teamInfoItemAdapter, List<TeamInfoItem> infoItems) {
+    public TeamInfoObserver(Context context, View view,NavigationView navigationView) {
         this.context = context;
-        nameT = (TextView) view.findViewById(R.id.team_name);
-        this.teamInfoItemAdapter = teamInfoItemAdapter;
-        this.infoItems = infoItems;
+        arenaImage = (ImageView)navigationView.inflateHeaderView(R.layout.drawer_header).findViewById(R.id.d_header);;
+        this.navigationView = navigationView;
+        menu = navigationView.getMenu();
     }
 
     @Override
@@ -49,14 +48,15 @@ public class TeamInfoObserver implements Observer<TeamData> {
         if (msg.equals("")) {
             Team team = data.getData();
 
-            nameT.setText(team.getTeam_name());
+            Resources res = context.getResources();
 
-            infoItems.clear();
+            int resId = res.getIdentifier("arena_" + team.getArena().getEq_level(), "drawable", "com.zhstar.demo.nbamanager");
 
-            infoItems.add(new TeamInfoItem(R.string.money, team.getTeam_money().toString()));
-            infoItems.add(new TeamInfoItem(R.string.evalue, team.getEv().toString()));
+            arenaImage.setImageResource(resId);
 
-            teamInfoItemAdapter.notifyDataSetChanged();
+            menu.getItem(0).setTitle(team.getTeam_name());
+            menu.getItem(1).setTitle(team.getTeam_money().toString());
+            menu.getItem(2).setTitle(team.getEv().toString());
 
         } else {
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();

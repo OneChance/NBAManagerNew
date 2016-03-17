@@ -2,26 +2,21 @@ package com.zhstar.demo.nbamanager.activity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.zhstar.demo.nbamanager.Entity.TeamInfoItem;
 import com.zhstar.demo.nbamanager.R;
-import com.zhstar.demo.nbamanager.adapter.TeamInfoItemAdapter;
 import com.zhstar.demo.nbamanager.services.TeamInfoObserver;
 import com.zhstar.demo.nbamanager.util.GameNetUtil;
 import com.zhstar.demo.nbamanager.view.toolbar.MaterialMenu;
 import com.zhstar.demo.nbamanager.view.toolbar.MaterialMenuDrawable;
 import com.zhstar.demo.nbamanager.view.toolbar.MaterialMenuDrawable.IconState;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BaseActivityHelper{
+public class BaseActivityHelper {
 
     private MaterialMenu materialIcon;
     private DrawerLayout drawerLayout;
@@ -29,39 +24,38 @@ public class BaseActivityHelper{
     private View drawer;
     private TeamInfoObserver teamInfoObserver;
     private boolean loaded = false;
-    private TeamInfoItemAdapter teamInfoItemAdapter;
-    private List<TeamInfoItem> infoItems;
-    private RecyclerView infoItemList;
 
     public void init(View parent, MaterialMenu actionBarIcon, final Context context) {
 
         materialIcon = actionBarIcon;
-        drawer = parent.findViewById(R.id.drawer);
+        drawer = parent.findViewById(R.id.nav_view);
 
-        //抽屉菜单项列表
-        infoItemList = (RecyclerView) parent.findViewById(R.id.info_list);
-        infoItemList.setLayoutManager(new LinearLayoutManager(context));
-        infoItems = new ArrayList<TeamInfoItem>();
-        teamInfoItemAdapter = new TeamInfoItemAdapter(context, infoItems);
 
-        teamInfoItemAdapter.setOnItemClickLitener(new TeamInfoItemAdapter.OnItemClickLitener() {
+        NavigationView navigationView = (NavigationView) parent.findViewById(R.id.nav_view);
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(context, position + " click",
-                        Toast.LENGTH_SHORT).show();
-            }
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-            @Override
-            public void onItemLongClick(View view, int position) {
-                Toast.makeText(context, position + " long click",
-                        Toast.LENGTH_SHORT).show();
+                menuItem.setChecked(true);
+                switch (menuItem.getItemId()) {
+                    case R.id.info_team_name:
+                        Toast.makeText(context, "team name", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.info_money:
+                        Toast.makeText(context, "money", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.info_fans:
+                        Toast.makeText(context, "fans", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        return true;
+                }
             }
         });
 
-        infoItemList.setAdapter(teamInfoItemAdapter);
-        teamInfoObserver = new TeamInfoObserver(context,parent,teamInfoItemAdapter,infoItems);
-        //end
+        teamInfoObserver = new TeamInfoObserver(context, parent, navigationView);
+
 
         drawerLayout = ((DrawerLayout) parent.findViewById(R.id.drawer_layout));
         drawerLayout.setScrimColor(Color.parseColor("#66000000"));
@@ -79,11 +73,11 @@ public class BaseActivityHelper{
             public void onDrawerStateChanged(int newState) {
                 super.onDrawerStateChanged(newState);
 
-                if(!loaded && newState!=DrawerLayout.STATE_IDLE){
+                if (!loaded && newState != DrawerLayout.STATE_IDLE) {
                     loaded = true;
                     GameNetUtil.SetObserverCommonAction(GameNetUtil.getGameServices().getTeamInfo())
                             .subscribe(teamInfoObserver);
-                }else{
+                } else {
 
                 }
             }
@@ -102,10 +96,10 @@ public class BaseActivityHelper{
         });
     }
 
-    public void menuToggle(){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+    public void menuToggle() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(drawer);
-        }else{
+        } else {
             drawerLayout.openDrawer(drawer);
         }
     }

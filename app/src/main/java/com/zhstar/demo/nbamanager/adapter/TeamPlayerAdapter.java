@@ -13,6 +13,9 @@ import com.zhstar.demo.nbamanager.R;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.ViewHolder> {
 
     private Context context;
@@ -94,43 +97,42 @@ public class TeamPlayerAdapter extends RecyclerView.Adapter<TeamPlayerAdapter.Vi
     public static class ViewHolder
             extends RecyclerView.ViewHolder {
 
+        @InjectView(R.id.player_head)
         public ImageView headI;
+        @InjectView(R.id.player_name)
         public TextView nameT;
+        @InjectView(R.id.player_pos)
         public TextView posT;
+        @InjectView(R.id.market_sal)
         public TextView marketSalT;
+        @InjectView(R.id.sign_sal)
         public TextView signSalT;
+        @InjectView(R.id.fg)
         public TextView shootT;
+        @InjectView(R.id.ft)
         public TextView ftT;
+        @InjectView(R.id.reb)
         public TextView rebT;
+        @InjectView(R.id.ast)
         public TextView astT;
+        @InjectView(R.id.stl)
         public TextView stlT;
+        @InjectView(R.id.blk)
         public TextView blkT;
+        @InjectView(R.id.tur)
         public TextView turT;
+        @InjectView(R.id.pf)
         public TextView pfT;
+        @InjectView(R.id.pts)
         public TextView ptsT;
+        @InjectView(R.id.ev)
         public TextView evT;
+        @InjectView(R.id.player_id)
         public TextView idT;
 
         public ViewHolder(View v) {
             super(v);
-
-            headI = (ImageView) v.findViewById(R.id.player_head);
-            nameT = (TextView) v.findViewById(R.id.player_name);
-            posT = (TextView) v.findViewById(R.id.player_pos);
-            marketSalT = (TextView) v.findViewById(R.id.market_sal);
-            signSalT = (TextView) v.findViewById(R.id.sign_sal);
-            shootT = (TextView) v.findViewById(R.id.fg);
-            ftT = (TextView) v.findViewById(R.id.ft);
-            rebT = (TextView) v.findViewById(R.id.reb);
-            astT = (TextView) v.findViewById(R.id.ast);
-            stlT = (TextView) v.findViewById(R.id.stl);
-            blkT = (TextView) v.findViewById(R.id.blk);
-            turT = (TextView) v.findViewById(R.id.tur);
-            pfT = (TextView) v.findViewById(R.id.pf);
-            ptsT = (TextView) v.findViewById(R.id.pts);
-            evT = (TextView) v.findViewById(R.id.ev);
-            idT = (TextView) v.findViewById(R.id.player_id);
-
+            ButterKnife.inject(this, v);
         }
     }
 

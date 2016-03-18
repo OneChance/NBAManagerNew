@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/arena_name"
+        style="@style/font_title"
+        android:layout_marginTop="30dp"
+        android:textSize="40sp" />
+
+    <TableLayout
+        android:id="@+id/info_table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:stretchColumns="0,1">
+
+        <TableRow>
+
+            <TextView
+                style="@style/font_title"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:text="@string/capacity" />
+
+            <TextView
+                android:id="@+id/arena_capacity"
+                style="@style/font_title"
+                android:layout_marginLeft="10dp"
+                android:gravity="left" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/arena_upgrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/material_card"
+                android:text="@string/arena_upgrade" />
+
+            <Button
+                android:id="@+id/arena_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/material_card"
+                android:text="@string/arena_close" />
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

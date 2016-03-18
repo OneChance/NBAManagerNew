@@ -19,21 +19,27 @@ import com.zhstar.demo.nbamanager.util.GameNetUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class PlayersFragment extends Fragment {
 
-    private RecyclerView listView;
+    @InjectView(R.id.play_list)
+    RecyclerView listView;
+    @InjectView(R.id.refreshComponent)
+    SwipeRefreshLayout refreshComponent;
+
     private List<Player> players;
     private TeamPlayerAdapter adapter;
     private TeamPlayersObserver teamPlayersObserver;
-    private SwipeRefreshLayout refreshComponent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.team_players, container, false);
+        ButterKnife.inject(this, view);
 
-        listView = (RecyclerView) view.findViewById(R.id.play_list);
         listView.setLayoutManager(new LinearLayoutManager(getActivity()));
         players = new ArrayList<Player>();
         adapter = new TeamPlayerAdapter(getActivity(), players);
@@ -56,7 +62,6 @@ public class PlayersFragment extends Fragment {
 
         listView.setAdapter(adapter);
 
-        refreshComponent = (SwipeRefreshLayout) view.findViewById(R.id.refreshComponent);
         refreshComponent.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

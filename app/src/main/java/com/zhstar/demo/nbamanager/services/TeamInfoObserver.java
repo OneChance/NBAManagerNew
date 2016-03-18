@@ -3,15 +3,20 @@ package com.zhstar.demo.nbamanager.services;
 import android.content.Context;
 import android.content.res.Resources;
 import android.support.design.widget.NavigationView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.Entity.Team;
 import com.zhstar.demo.nbamanager.Entity.TeamData;
 import com.zhstar.demo.nbamanager.R;
+import com.zhstar.demo.nbamanager.view.dialog.MaterialDialog;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import rx.Observer;
 
 
@@ -21,10 +26,32 @@ public class TeamInfoObserver implements Observer<TeamData> {
     public ImageView arenaImage;
     public NavigationView navigationView;
     public Menu menu;
+    MaterialDialog materialDialog;
+    final View arenaInfoView;
 
-    public TeamInfoObserver(Context context, View view,NavigationView navigationView) {
+    @InjectView(R.id.arena_name)
+    TextView arenaName;
+    @InjectView(R.id.arena_capacity)
+    TextView arenaCapacity;
+
+    public TeamInfoObserver(final Context context, View view, NavigationView navigationView) {
         this.context = context;
-        arenaImage = (ImageView)navigationView.inflateHeaderView(R.layout.drawer_header).findViewById(R.id.d_header);;
+
+        materialDialog = new MaterialDialog(context);
+
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        arenaInfoView = inflater.inflate(R.layout.arena_info, null);
+
+        ButterKnife.inject(this, arenaInfoView);
+
+        arenaImage = (ImageView) navigationView.inflateHeaderView(R.layout.drawer_header).findViewById(R.id.d_header);
+        arenaImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                materialDialog.setView(arenaInfoView).show();
+            }
+        });
+
         this.navigationView = navigationView;
         menu = navigationView.getMenu();
     }
@@ -57,6 +84,9 @@ public class TeamInfoObserver implements Observer<TeamData> {
             menu.getItem(0).setTitle(team.getTeam_name());
             menu.getItem(1).setTitle(team.getTeam_money().toString());
             menu.getItem(2).setTitle(team.getEv().toString());
+
+            arenaName.setText(team.getArena().getArena_name());
+            arenaCapacity.setText(team.getArena().getCap().toString());
 
         } else {
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();

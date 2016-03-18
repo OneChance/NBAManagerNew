@@ -9,35 +9,46 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.zhstar.demo.nbamanager.R;
+import com.zhstar.demo.nbamanager.component.DaggerObserverComponent;
+import com.zhstar.demo.nbamanager.module.ObserverModule;
 import com.zhstar.demo.nbamanager.services.LoginObserver;
 import com.zhstar.demo.nbamanager.util.Code;
 import com.zhstar.demo.nbamanager.util.GameNetUtil;
 import com.zhstar.demo.nbamanager.util.SharedUtil;
 import com.zhstar.demo.nbamanager.view.button.ButtonRectangle;
 
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class LoginActivity extends Activity implements View.OnClickListener {
 
-    private EditText editName;
-    private EditText editPassword;
-    private ButtonRectangle loginBtn;
-    private ButtonRectangle regBtn;
+    @InjectView(R.id.account_edit)
+    public EditText editName;
+    @InjectView(R.id.password_edit)
+    public EditText editPassword;
+    @InjectView(R.id.login_btn)
+    public ButtonRectangle loginBtn;
+    @InjectView(R.id.reg_btn)
+    public ButtonRectangle regBtn;
     private SharedPreferences.Editor editor;
     private Context context;
-    private LoginObserver loginObserver;
+
+    @Inject
+    LoginObserver loginObserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
+        ButterKnife.inject(this);
         context = this;
 
-        loginObserver = new LoginObserver(context);
-        editName = (EditText) findViewById(R.id.account_edit);
-        editPassword = (EditText) findViewById(R.id.password_edit);
-        loginBtn = (ButtonRectangle) findViewById(R.id.login_btn);
-        regBtn = (ButtonRectangle) findViewById(R.id.reg_btn);
+
+        //仅仅是尝试使用dagger2,暂且没有明白如何高效利用这个技术
+        DaggerObserverComponent.builder().observerModule(new ObserverModule(context)).build().inject(this);
 
         SharedPreferences sharedPreferences = SharedUtil.getSharedPreferences(context);
         editor = sharedPreferences.edit();

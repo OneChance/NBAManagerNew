@@ -32,7 +32,7 @@ public class GameNetUtil {
                     Request.Builder builder = chain.request()
                             .newBuilder();
 
-                    if(!Session.SessionId.equals("")){
+                    if (Session.SessionId != null && !Session.SessionId.equals("")) {
                         builder = builder.addHeader("Cookie", Session.SessionId);
                     }
 
@@ -40,7 +40,7 @@ public class GameNetUtil {
 
                     Response response = chain.proceed(request);
 
-                    if(Session.SessionId.equals("")){
+                    if (Session.SessionId != null && Session.SessionId.equals("")) {
                         Session.SessionId = response.header("Set-Cookie");
                     }
 

@@ -33,4 +33,8 @@
 
     <string name="team_players">球员</string>
     <string name="markets">市场</string>
+
+    <string name="capacity">容量</string>
+    <string name="arena_upgrade">升级</string>
+    <string name="arena_close">取消</string>
 </resources>

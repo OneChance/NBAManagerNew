@@ -47,13 +47,9 @@ Temporary Items
 .apdisk
 /.gradle
 /build
-.gradle
 /NBAManagerNew.iml
 /NBAManager.iml
-/build.gradle
-/gradle.properties
 /gradlew
 /gradlew.bat
 /local.properties
-/settings.gradle
 /gradle

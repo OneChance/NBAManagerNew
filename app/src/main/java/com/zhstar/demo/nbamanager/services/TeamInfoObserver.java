@@ -14,6 +14,7 @@ import com.zhstar.demo.nbamanager.Entity.Team;
 import com.zhstar.demo.nbamanager.Entity.TeamData;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.view.dialog.MaterialDialog;
+import com.zhstar.demo.nbamanager.view.button.ButtonRectangle;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -33,6 +34,14 @@ public class TeamInfoObserver implements Observer<TeamData> {
     TextView arenaName;
     @InjectView(R.id.arena_capacity)
     TextView arenaCapacity;
+    @InjectView(R.id.ticket_price)
+    TextView arenaTicketPrice;
+    @InjectView(R.id.arena_attendance)
+    TextView arenaAttendance;
+    @InjectView(R.id.arena_today_in)
+    TextView arenaTodayIn;
+    @InjectView(R.id.arena_close)
+    ButtonRectangle arenaClose;
 
     public TeamInfoObserver(final Context context, View view, NavigationView navigationView) {
         this.context = context;
@@ -45,10 +54,18 @@ public class TeamInfoObserver implements Observer<TeamData> {
         ButterKnife.inject(this, arenaInfoView);
 
         arenaImage = (ImageView) navigationView.inflateHeaderView(R.layout.drawer_header).findViewById(R.id.d_header);
+
         arenaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 materialDialog.setView(arenaInfoView).show();
+            }
+        });
+
+        arenaClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               materialDialog.dismiss(view);
             }
         });
 
@@ -87,6 +104,9 @@ public class TeamInfoObserver implements Observer<TeamData> {
 
             arenaName.setText(team.getArena().getArena_name());
             arenaCapacity.setText(team.getArena().getCap().toString());
+            arenaTicketPrice.setText(team.getArena().getTicket_price().toString());
+            arenaAttendance.setText(team.getArena().getAttendance().toString());
+            arenaTodayIn.setText(team.getArena().getToday_in().toString());
 
         } else {
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();

@@ -121,8 +121,14 @@ public class MaterialDialog {
     }
 
 
-    public void dismiss() {
-        mAlertDialog.dismiss();
+    public void dismiss(View view) {
+
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                mAlertDialog.dismiss();
+            }
+        });
     }
 
 

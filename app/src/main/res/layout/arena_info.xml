@@ -29,7 +29,7 @@
 
             <TextView
                 android:id="@+id/arena_capacity"
-                style="@style/font_title"
+                style="@style/font_value"
                 android:layout_marginLeft="10dp"
                 android:gravity="left" />
 
@@ -37,20 +37,64 @@
 
         <TableRow>
 
-            <Button
+            <TextView
+                style="@style/font_title"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:text="@string/ticket_price" />
+
+            <TextView
+                android:id="@+id/ticket_price"
+                style="@style/font_value"
+                android:layout_marginLeft="10dp"
+                android:gravity="left" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/font_title"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:text="@string/attendance" />
+
+            <TextView
+                android:id="@+id/arena_attendance"
+                style="@style/font_value"
+                android:layout_marginLeft="10dp"
+                android:gravity="left" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/font_title"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:text="@string/today_in" />
+
+            <TextView
+                android:id="@+id/arena_today_in"
+                style="@style/font_value"
+                android:layout_marginLeft="10dp"
+                android:gravity="left" />
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop="30dp">
+
+            <com.zhstar.demo.nbamanager.view.button.ButtonRectangle
                 android:id="@+id/arena_upgrade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/material_card"
                 android:text="@string/arena_upgrade" />
 
-            <Button
+            <com.zhstar.demo.nbamanager.view.button.ButtonRectangle
                 android:id="@+id/arena_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/material_card"
                 android:text="@string/arena_close" />
 
         </TableRow>

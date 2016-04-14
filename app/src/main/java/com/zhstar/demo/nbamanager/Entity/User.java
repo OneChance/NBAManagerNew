@@ -1,50 +1,51 @@
 package com.zhstar.demo.nbamanager.Entity;
 
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.zhstar.demo.nbamanager.BR;
+
 import java.io.Serializable;
 
-public class User implements Serializable {
-	
+public class User extends BaseObservable implements Serializable{
 
-	private Long id;
-	private String user_name;
-	private String password;
-	private Team team;
 
-	public User(String username,String password){
-		this.user_name = username;
-		this.password = password;
-	}
+    private Long id;
+    private String user_name;
+    private String password;
 
-	public Long getId() {
-		return id;
-	}
+    public User(String username, String password) {
+        this.user_name = username;
+        this.password = password;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getUser_name() {
-		return user_name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
+    @Bindable
+    public String getUser_name() {
+        return user_name;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+        notifyPropertyChanged(BR.user_name);
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Bindable
+    public String getPassword() {
+        return password;
+    }
 
-	public Team getTeam() {
-		return team;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+        notifyPropertyChanged(BR.password);
+    }
 
-	public void setTeam(Team team) {
-		this.team = team;
-	}
 }

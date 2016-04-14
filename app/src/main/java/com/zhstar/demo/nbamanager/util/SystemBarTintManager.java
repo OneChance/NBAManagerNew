@@ -340,7 +340,7 @@ public class SystemBarTintManager {
             params.gravity = Gravity.BOTTOM;
         } else {
             params = new LayoutParams(mConfig.getNavigationBarWidth(), LayoutParams.MATCH_PARENT);
-            params.gravity = Gravity.RIGHT;
+            params.gravity = Gravity.END;
         }
         mNavBarTintView.setLayoutParams(params);
         mNavBarTintView.setBackgroundColor(DEFAULT_TINT_COLOR);
@@ -458,7 +458,6 @@ public class SystemBarTintManager {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             } else {
-                // TODO this is not correct, but we don't really care pre-kitkat
                 activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
             }
             float widthDp = metrics.widthPixels / metrics.density;

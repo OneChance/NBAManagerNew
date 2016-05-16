@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.zhstar.demo.nbamanager.Entity.User;
-import com.zhstar.demo.nbamanager.Entity.UserData;
+import com.zhstar.demo.nbamanager.entity.User;
+import com.zhstar.demo.nbamanager.entity.UserData;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.activity.MainActivity;
 

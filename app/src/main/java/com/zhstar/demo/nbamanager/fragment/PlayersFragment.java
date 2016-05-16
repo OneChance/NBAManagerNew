@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.zhstar.demo.nbamanager.Entity.Player;
+import com.zhstar.demo.nbamanager.entity.Player;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.adapter.TeamPlayerAdapter;
 import com.zhstar.demo.nbamanager.services.TeamPlayersObserver;

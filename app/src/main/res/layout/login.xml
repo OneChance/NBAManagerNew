@@ -1,13 +1,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
-        <variable
-            name="user"
-            type="com.zhstar.demo.nbamanager.Entity.User" />
-        <variable
-            name="testname"
-            type="String"/>
+        <import type="android.view.View" />
+        <import type="com.zhstar.demo.nbamanager.entity.User" />
+        <variable name="user" type="User" />
     </data>
 
     <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -47,16 +43,6 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{testname}"
-            android:id="@+id/testname"
-            android:textColor="#3f51b5"
-            android:textSize="20sp"
-            android:layout_gravity="center_horizontal" />
 
         <com.zhstar.demo.nbamanager.view.edittext.MaterialEditText
             android:layout_width="180dp"

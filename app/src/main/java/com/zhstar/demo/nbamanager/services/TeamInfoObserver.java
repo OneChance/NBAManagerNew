@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhstar.demo.nbamanager.Entity.Team;
-import com.zhstar.demo.nbamanager.Entity.TeamData;
+import com.zhstar.demo.nbamanager.entity.Team;
+import com.zhstar.demo.nbamanager.entity.TeamData;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.view.dialog.MaterialDialog;
 import com.zhstar.demo.nbamanager.view.button.ButtonRectangle;

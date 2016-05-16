@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.zhstar.demo.nbamanager.Entity.Player;
+import com.zhstar.demo.nbamanager.entity.Player;
 import com.zhstar.demo.nbamanager.R;
 
 import java.util.List;

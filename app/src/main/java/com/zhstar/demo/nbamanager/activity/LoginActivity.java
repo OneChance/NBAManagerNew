@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.zhstar.demo.nbamanager.Entity.User;
+import com.zhstar.demo.nbamanager.entity.User;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.databinding.LoginBinding;
 import com.zhstar.demo.nbamanager.services.LoginObserver;
@@ -43,8 +43,8 @@ public class LoginActivity extends Activity {
         String password = sharedPreferences.getString("password", "");
 
         User user = new User(username, password);
+        user.setUser_name("zh");
         binding.setUser(user);
-        binding.setTestname("123");
     }
 
     public void login(View v) {

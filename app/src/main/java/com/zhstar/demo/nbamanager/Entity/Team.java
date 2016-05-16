@@ -1,4 +1,4 @@
-package com.zhstar.demo.nbamanager.Entity;
+package com.zhstar.demo.nbamanager.entity;
 
 
 import java.io.Serializable;

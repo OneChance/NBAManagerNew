@@ -5,8 +5,8 @@ import android.content.res.Resources;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.Toast;
 
-import com.zhstar.demo.nbamanager.Entity.Player;
-import com.zhstar.demo.nbamanager.Entity.PlayerData;
+import com.zhstar.demo.nbamanager.entity.Player;
+import com.zhstar.demo.nbamanager.entity.PlayerData;
 import com.zhstar.demo.nbamanager.R;
 import com.zhstar.demo.nbamanager.adapter.TeamPlayerAdapter;
 

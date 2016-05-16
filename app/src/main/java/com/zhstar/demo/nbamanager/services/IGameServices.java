@@ -1,8 +1,8 @@
 package com.zhstar.demo.nbamanager.services;
 
-import com.zhstar.demo.nbamanager.Entity.PlayerData;
-import com.zhstar.demo.nbamanager.Entity.TeamData;
-import com.zhstar.demo.nbamanager.Entity.UserData;
+import com.zhstar.demo.nbamanager.entity.PlayerData;
+import com.zhstar.demo.nbamanager.entity.TeamData;
+import com.zhstar.demo.nbamanager.entity.UserData;
 
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
